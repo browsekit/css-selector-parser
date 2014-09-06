@@ -15,7 +15,6 @@ public class BeginsWith implements CssAttributeToken {
 		return "["+this.key+"^=\""+this.value+"\"]";
 	}
 
-	@Override
 	public Boolean matches(String key, String value) {
 		if(null == this.key || null == this.value){
 			return false;

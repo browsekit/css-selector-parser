@@ -12,7 +12,6 @@ public class Has implements CssAttributeToken {
 		return "["+this.key+"]";
 	}
 
-	@Override
 	public Boolean matches(String key, String value) {
 		// ignore `value`
 		return matches(key);

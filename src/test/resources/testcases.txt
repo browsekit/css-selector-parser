@@ -1,0 +1,26 @@
+// original tests
+#element-id, #another-element-id
+#element-id, div#another-element-id, element
+div#element-id span#span-id
+div#element-id span#span-id.class-name
+div#element-id span #color:not(span#my-span-id, #another-id)
+div#element-id span[ignore="false"]
+div#element-id span[ignore]
+
+// from the wiki
+div
+div#yacc-id
+div#yacc-id span
+div span
+div span#span-id
+div#yacc-id span#span-id
+span
+ul
+ul#ul-id
+li
+li#li-id
+div#yacc-id span[title="entry title"]
+div#yacc-id span[title*="title"]
+div#yacc-id span[title^="title"]
+div#yacc-id span[title$="title"]
+div#yacc-id span #shoe[color="green"]
