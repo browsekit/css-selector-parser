@@ -89,8 +89,12 @@ public class SelectorPhrase {
 		return this.descendent = new SelectorPhrase();
 	}
 
+	public boolean isLastDescendant(){
+		return this.descendent == null;
+	}
+	
 	public SelectorPhrase getLastDescendant(){
-		if(this.descendent == null){
+		if(this.isLastDescendant()){
 			return this;
 		}
 
