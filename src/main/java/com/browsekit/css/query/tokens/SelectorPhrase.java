@@ -19,7 +19,35 @@ public class SelectorPhrase {
 	public List<CssAttributeToken> attributes = new ArrayList<CssAttributeToken>();
 
 	public SelectorPhrase descendent;
+	
+	// if you add any properties, be sure to update methods below (hashCode, isEmpty, toString)
 
+	public int hashCode(){
+		int hashCode = 0;
+		
+		if(this.element != null){
+			hashCode += this.element.hashCode();
+		}
+
+		if(this.id != null){
+			hashCode += this.id.hashCode();
+		}
+
+		if(this.classes.size() > 0){
+			hashCode += this.classes.hashCode();
+		}
+
+		if(this.pseudos.size() > 0){
+			hashCode += this.pseudos.hashCode();
+		}
+
+		if(this.attributes.size() > 0){
+			hashCode += this.attributes.hashCode();
+		}
+		
+		return hashCode;
+	}
+	
 	public Boolean isEmpty(){
 		if(this.element != null && this.element.length() > 0){
 			return false;
@@ -41,8 +69,6 @@ public class SelectorPhrase {
 			return false;
 		}
 
-		// add other field checks here
-
 		return true;
 	}
 
@@ -53,13 +79,15 @@ public class SelectorPhrase {
 			me += this.element;
 		}
 
-		if(this.id != null){
+		if(this.id != null && this.id.length() > 0){
 			me += "#" + this.id;
 		}
 
 		if(this.classes.size() > 0){
 			for(String className : this.classes){
-				me += "." + className;
+				if(className != null && className.length() > 0){
+					me += "." + className;
+				}
 			}
 		}
 
@@ -80,6 +108,19 @@ public class SelectorPhrase {
 		}
 
 		return me;
+	}
+	
+	public boolean equals(Object o){
+		if(null == o){
+			return false;
+		}
+		
+		if(!(o instanceof SelectorPhrase)){
+			return false;
+		}
+		
+		// inspecting individual properties would be duplication of logic
+		return this.toString().equals(o.toString());
 	}
 
 	public SelectorPhrase createDescendant(){
