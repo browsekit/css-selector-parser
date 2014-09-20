@@ -20,13 +20,17 @@ public class CssTest {
 		assertNotNull(testcases);
 		BufferedReader br = new BufferedReader(new InputStreamReader(testcases));
 		String line = null;
+		
+		CssSelectorTokenizer csTokenizer = new CssSelectorTokenizer();
+		csTokenizer.addDefaultGrammar();
+		
 		while ((line = br.readLine()) != null) {
 			String query = StringUtils.trim(line);
 			if (StringUtils.isEmpty(query)) continue;
 			if (query.startsWith("//")) continue;
 			if (query.matches("^$")) continue;
 
-			assertEquals(query, CssSelectorTokenizer.parse(query).toString());
+			assertEquals(query, csTokenizer.parse(query).toString());
 		}
 	}
 }

@@ -73,6 +73,7 @@ public class SelectorPhrase {
 	}
 
 	public String toString(){
+		// TODO: maybe use a string builder instead? (perf)
 		String me = "";
 
 		if(this.element != null){

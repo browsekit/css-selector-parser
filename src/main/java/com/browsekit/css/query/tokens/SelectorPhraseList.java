@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class SelectorPhraseList extends ArrayList<SelectorPhrase> {
 
+	// TODO: add serialVersionUID, but maintain! it
+	
 	public SelectorPhrase getLastPhrase(){
 		int size = this.size();
 		if(size < 1){

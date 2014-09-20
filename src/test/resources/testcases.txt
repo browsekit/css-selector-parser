@@ -1,4 +1,5 @@
 // original tests
+#element-id
 #element-id, #another-element-id
 #element-id, div#another-element-id, element
 div#element-id span#span-id
